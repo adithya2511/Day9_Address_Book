@@ -1,9 +1,12 @@
 package com.bridgelabz;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
+    ArrayList<Contacts> contactList = new ArrayList<>();
     Contacts contact = new Contacts();
     Scanner scan = new Scanner(System.in);
+
     void addContact() {
         System.out.println("Enter firstName :");
         contact.setFirstName(scan.next());
@@ -21,7 +24,9 @@ public class AddressBook {
         contact.setZip(scan.nextInt());
         System.out.println("Enter phoneNumber :");
         contact.setPhoneNumber(scan.nextLong());
+        contactList.add(contact);
     }
+
     void editContact() {
         System.out.println("Enter first name of person to edit");
         String firstName = scan.next();
@@ -51,6 +56,7 @@ public class AddressBook {
             System.out.println("person not found");
         }
     }
+
     void deleteContact() {
         System.out.println("Enter the first name person to delete ");
         String firstName = scan.next();
@@ -60,8 +66,5 @@ public class AddressBook {
         } else {
             System.out.println("no contact found");
         }
-    }
-    Contacts display() {
-        return contact;
     }
 }
